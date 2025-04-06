@@ -8,14 +8,16 @@ namespace _27._03._25_perşembe
 {
     public class sinema
     {
-        public int toplamKoltukSayısı {  get; set; }
+        public int toplamKoltukSayısı { get; set; }
         public int boşKoltukSayısı { get; set; }
-        public double bakiye {  get; set; }
-        public string salonAdı {  get; set; }
+        public double bakiye { get; set; }
+        public int indirimliKoltuk { get; set; }
+        public int normalKoltuk { get; set; }
+        public string salonAdı { get; set; }
         public const double TamBilet = 150;
         public const double İndirimliBilet = 100;
-        
-        public sinema(string _salonAdı,int _koltukSayısı)
+
+        public sinema(string _salonAdı, int _koltukSayısı)
         {
             this.toplamKoltukSayısı = _koltukSayısı;
             this.boşKoltukSayısı = toplamKoltukSayısı;
@@ -25,18 +27,30 @@ namespace _27._03._25_perşembe
         public void BiletSat(bool _indirimli)
         {
             if (_indirimli)
+            {
                 bakiye += İndirimliBilet;
+                indirimliKoltuk++;
+            }
             else
+            {
                 bakiye += TamBilet;
-
+                normalKoltuk++;
+            }
             boşKoltukSayısı--;
+
         }
-        public void Biletİade (bool _indirimli)
+        public void Biletİade(bool _indirimli)
         {
             if (_indirimli)
+            {
                 bakiye -= İndirimliBilet;
+                indirimliKoltuk--;
+            }
             else
+            {
                 bakiye -= TamBilet;
+                normalKoltuk--;
+            }
 
             boşKoltukSayısı++;
         }
@@ -44,7 +58,7 @@ namespace _27._03._25_perşembe
         {
             return boşKoltukSayısı;
         }
-       public double BakiyeGetir()
+        public double BakiyeGetir()
         {
             return bakiye;
         }

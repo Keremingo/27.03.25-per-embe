@@ -30,7 +30,7 @@ namespace _27._03._25_perşembe
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -46,18 +46,46 @@ namespace _27._03._25_perşembe
             btnboşkoltuk.Enabled = true;
             btnsatış.Enabled = true;
             btniade.Enabled = true;
+            btnsatilankoltuk.Enabled = true;
 
         }
 
         private void btnsatış_Click(object sender, EventArgs e)
         {
+            int BosKoltuk = sinema1.BoşKoltukSayısıGetir();
+            if (BosKoltuk == 0)
+            {
+                LblInfo.Text = "Koltuklar Tükenmiştir";
+                return;
+            }
             sinema1.BiletSat(Chkİndirimli.Checked);
-            
+            LblInfo.Text = "Bilet Satıldı";
         }
 
         private void Chkiade_Click(object sender, EventArgs e)
         {
+            int bosKoltuk = sinema1.BoşKoltukSayısıGetir();
+            int koltukSayisi = sinema1.toplamKoltukSayısı;
+            if(bosKoltuk == koltukSayisi)
+            {
+                LblInfo.Text = "İade Edilecek Koltuk Bulunamadı";
+                return;
+            }
+            int indirimliKoltuk = sinema1.indirimliKoltuk;
+            int normalKoltuk = sinema1.normalKoltuk;
+            if(indirimliKoltuk==0)
+            {
+                Chkİndirimli.Checked = false;
+                LblInfo.Text = "İndirimli Koltuk Bulunamadı";
+                
+            }
+            if(normalKoltuk == 0)
+            {
+                LblInfo.Text = "Normal Koltuk Kalmnadı";
+                
+            }
             sinema1.Biletİade(Chkİndirimli.Checked);
+            LblInfo.Text = "Bilet İade Edildi";
         }
 
         private void btnboşkoltuk_Click(object sender, EventArgs e)
@@ -72,6 +100,13 @@ namespace _27._03._25_perşembe
             LblInfo.Text = "bakiye: " + bakiye;
 
 
+        }
+
+        private void btnsatilankoltuk_Click(object sender, EventArgs e)
+        {
+            int indirimliKoltuk = sinema1.indirimliKoltuk;
+            int normalKoltuk = sinema1.normalKoltuk;
+            LblInfo.Text = "İndirimli Koltuk:" + indirimliKoltuk + " Normal Koltuk:" + normalKoltuk;
         }
     }
 }

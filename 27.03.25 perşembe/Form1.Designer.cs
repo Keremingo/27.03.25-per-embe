@@ -42,6 +42,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnbakiye = new System.Windows.Forms.Button();
             this.btnboşkoltuk = new System.Windows.Forms.Button();
+            this.btnsatilankoltuk = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -152,6 +153,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnsatilankoltuk);
             this.groupBox2.Controls.Add(this.btnbakiye);
             this.groupBox2.Controls.Add(this.btnboşkoltuk);
             this.groupBox2.Location = new System.Drawing.Point(357, 121);
@@ -164,7 +166,7 @@
             // btnbakiye
             // 
             this.btnbakiye.Enabled = false;
-            this.btnbakiye.Location = new System.Drawing.Point(191, 62);
+            this.btnbakiye.Location = new System.Drawing.Point(191, 43);
             this.btnbakiye.Name = "btnbakiye";
             this.btnbakiye.Size = new System.Drawing.Size(91, 37);
             this.btnbakiye.TabIndex = 12;
@@ -175,13 +177,24 @@
             // btnboşkoltuk
             // 
             this.btnboşkoltuk.Enabled = false;
-            this.btnboşkoltuk.Location = new System.Drawing.Point(37, 62);
+            this.btnboşkoltuk.Location = new System.Drawing.Point(33, 43);
             this.btnboşkoltuk.Name = "btnboşkoltuk";
             this.btnboşkoltuk.Size = new System.Drawing.Size(106, 37);
             this.btnboşkoltuk.TabIndex = 11;
             this.btnboşkoltuk.Text = "BOŞ KOLTUK";
             this.btnboşkoltuk.UseVisualStyleBackColor = true;
             this.btnboşkoltuk.Click += new System.EventHandler(this.btnboşkoltuk_Click);
+            // 
+            // btnsatilankoltuk
+            // 
+            this.btnsatilankoltuk.Enabled = false;
+            this.btnsatilankoltuk.Location = new System.Drawing.Point(85, 99);
+            this.btnsatilankoltuk.Name = "btnsatilankoltuk";
+            this.btnsatilankoltuk.Size = new System.Drawing.Size(151, 37);
+            this.btnsatilankoltuk.TabIndex = 13;
+            this.btnsatilankoltuk.Text = "SATILAN KOLTUK";
+            this.btnsatilankoltuk.UseVisualStyleBackColor = true;
+            this.btnsatilankoltuk.Click += new System.EventHandler(this.btnsatilankoltuk_Click);
             // 
             // Form1
             // 
@@ -225,6 +238,7 @@
         private System.Windows.Forms.Button btnbakiye;
         private System.Windows.Forms.Button btnboşkoltuk;
         private System.Windows.Forms.CheckBox Chkİndirimli;
+        private System.Windows.Forms.Button btnsatilankoltuk;
     }
 }
 
